@@ -8,6 +8,9 @@ import io
 import re
 from datetime import datetime
 
+# Import the necessary component for microphone input
+from streamlit_mic_recorder import mic_recorder 
+
 # ML Libraries
 from sentence_transformers import SentenceTransformer
 from gtts import gTTS
@@ -56,7 +59,7 @@ class DBManager:
                 ('12345678', 54200.75),
                 ('98765432', 1200.00),
             ]
-            # --- FIX APPLIED HERE: Using INSERT OR IGNORE ---
+            # FIX APPLIED HERE: Using INSERT OR IGNORE
             cursor.executemany("INSERT OR IGNORE INTO accounts VALUES (?, ?)", accounts_data)
             
             conn.commit()
@@ -194,14 +197,13 @@ class VoiceBot:
         self.stt_model = whisper.load_model(WHISPER_MODEL)
         st.success("Models loaded successfully!")
 
-    def transcribe_audio(self, audio_file):
-        """Transcribes the audio file using OpenAI Whisper."""
+    def transcribe_audio(self, audio_data):
+        """Transcribes the audio data buffer using OpenAI Whisper."""
         try:
-            # Whisper requires a file path or a compatible numpy array
-            # Since we have an uploaded file buffer, we save it temporarily.
-            temp_path = "temp_uploaded_audio.wav"
+            # mic_recorder returns bytes, which we can write to a temp file
+            temp_path = "temp_recorded_audio.wav"
             with open(temp_path, "wb") as f:
-                f.write(audio_file.getbuffer())
+                f.write(audio_data)
 
             # Use whisper to transcribe the temporary file
             result = self.stt_model.transcribe(temp_path)
@@ -248,21 +250,42 @@ def main():
     # Initialize the VoiceBot (only loads heavy models once)
     bot = initialize_bot()
 
-    st.subheader("1. Upload or Record your Query")
+    st.subheader("1. Record your Query")
     
-    # Use st.file_uploader for user input
+    # Use mic_recorder for direct microphone input
+    # 'bytes' returns the audio data as a bytes object after recording stops
+    audio_input = mic_recorder(
+        start_prompt="Start Recording", 
+        stop_prompt="Stop Recording",
+        key='mic_recorder_key',
+        just_once=True,
+        format='wav',
+        callback=None
+    )
+    
+    # Optional: Allow file upload as a fallback
+    st.markdown("---")
+    st.subheader("... or Upload a File (Fallback)")
     uploaded_file = st.file_uploader(
-        "Upload a voice file (.wav, .mp3) with your question. "
-        "Try queries like 'What is my account balance 12345678?' or 'I want to make a hotel reservation under the name of Jane for tomorrow.'", 
+        "Upload a voice file (.wav, .mp3)", 
         type=['wav', 'mp3']
     )
 
-    if uploaded_file is not None:
+    audio_data = None
+    if audio_input and audio_input['bytes']:
+        audio_data = audio_input['bytes']
+    elif uploaded_file is not None:
+        # If a file is uploaded, use its content (getbuffer() returns bytes)
+        audio_data = uploaded_file.getbuffer()
+
+
+    if audio_data is not None:
         
         # --- 2. TRANSCRIPTION (STT) ---
         start_time = time.time()
         with st.spinner("Transcribing audio using Whisper..."):
-            transcribed_text = bot.transcribe_audio(uploaded_file)
+            # Pass the raw bytes/buffer to the transcribe function
+            transcribed_text = bot.transcribe_audio(audio_data)
         stt_latency = time.time() - start_time
         
         if transcribed_text:
@@ -275,8 +298,10 @@ def main():
             nlu_latency = time.time() - start_time
             
             # Update the latency in the last logged interaction
-            log = st.session_state['interaction_log'][-1]
-            log['Latency (sec)'] = f"{stt_latency + nlu_latency:.2f}"
+            # Ensure log exists before accessing index -1
+            if st.session_state.get('interaction_log'):
+                log = st.session_state['interaction_log'][-1]
+                log['Latency (sec)'] = f"{stt_latency + nlu_latency:.2f}"
             
             st.markdown("### 🤖 Bot Response")
             st.success(response_text)
@@ -296,7 +321,7 @@ def main():
             except Exception as e:
                 st.error(f"TTS Error: Could not generate audio. Details: {e}")
         else:
-            st.error("Could not transcribe the audio. Please try another file.")
+            st.error("Could not transcribe the audio. Please try another recording or file.")
 
 
 def generate_dashboard():
