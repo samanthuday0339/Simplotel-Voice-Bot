@@ -1,0 +1,11 @@
+openai-whisper
+sentence-transformers
+gTTS
+sounddevice
+scipy
+pandas
+matplotlib
+seaborn
+torch
+numpy
+ipython
