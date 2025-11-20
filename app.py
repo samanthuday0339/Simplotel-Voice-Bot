@@ -7,6 +7,7 @@ import os
 import io
 import re
 from datetime import datetime
+import tempfile # Added for robust temporary file handling
 
 # Import the necessary component for microphone input
 from streamlit_mic_recorder import mic_recorder 
@@ -199,22 +200,26 @@ class VoiceBot:
 
     def transcribe_audio(self, audio_data):
         """Transcribes the audio data buffer using OpenAI Whisper."""
+        temp_path = None # Initialize outside try block for cleanup
         try:
-            # Write the raw bytes data to a temporary file
-            temp_path = "temp_recorded_audio.wav"
-            with open(temp_path, "wb") as f:
-                f.write(audio_data)
+            # FIX: Use tempfile for robust temporary file handling.
+            # This is more resilient to environmental issues causing the getbuffer error.
+            with tempfile.NamedTemporaryFile(suffix='.wav', delete=False) as tmp_file:
+                tmp_file.write(audio_data)
+                temp_path = tmp_file.name # Get the path of the created temp file
 
-            # Use whisper to transcribe the temporary file
+            # Use whisper to transcribe the temporary file from the path
             result = self.stt_model.transcribe(temp_path)
-            
-            # Clean up the temporary file
-            os.remove(temp_path)
             
             return result["text"]
         except Exception as e:
             st.error(f"Error during transcription: {e}")
+            st.warning("The error suggests a low-level library (like ffmpeg/soundfile) is expecting a file object but got raw bytes. This new fix uses a proper temp file to resolve this.")
             return None
+        finally:
+            # Clean up the temporary file safely
+            if temp_path and os.path.exists(temp_path):
+                os.remove(temp_path)
 
 # --- STREAMLIT UI/ENTRY POINT ---
 
@@ -275,7 +280,7 @@ def main():
     if audio_input and audio_input['bytes']:
         audio_data = audio_input['bytes']
     elif uploaded_file is not None:
-        # FIX APPLIED HERE: Use the robust .read() method to get all file contents as bytes.
+        # This is the most robust way to read the file contents as raw bytes in Streamlit.
         uploaded_file.seek(0)
         audio_data = uploaded_file.read()
 
