@@ -52,5 +52,5 @@ This project uses **OpenAI Whisper**, which requires `ffmpeg` to be installed on
 
 ### 2. Clone the Repository
 ```bash
-git clone [https://github.com/YOUR_USERNAME/Simplotel-Voice-Bot.git](https://github.com/YOUR_USERNAME/Simplotel-Voice-Bot.git)
+git clone [https://github.com/samanthuday0339/Simplotel-Voice-Bot](https://github.com/samanthuday0339/Simplotel-Voice-Bot)
 cd Simplotel-Voice-Bot
