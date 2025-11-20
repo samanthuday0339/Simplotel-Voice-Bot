@@ -200,7 +200,7 @@ class VoiceBot:
     def transcribe_audio(self, audio_data):
         """Transcribes the audio data buffer using OpenAI Whisper."""
         try:
-            # mic_recorder returns bytes, which we can write to a temp file
+            # Write the raw bytes data to a temporary file
             temp_path = "temp_recorded_audio.wav"
             with open(temp_path, "wb") as f:
                 f.write(audio_data)
@@ -275,8 +275,8 @@ def main():
     if audio_input and audio_input['bytes']:
         audio_data = audio_input['bytes']
     elif uploaded_file is not None:
-        # If a file is uploaded, use its content (getbuffer() returns bytes)
-        audio_data = uploaded_file.getbuffer()
+        # FIX APPLIED HERE: Explicitly convert the buffer (memoryview) to bytes using .tobytes()
+        audio_data = uploaded_file.getbuffer().tobytes()
 
 
     if audio_data is not None:
