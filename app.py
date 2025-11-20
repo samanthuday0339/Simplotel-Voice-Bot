@@ -275,8 +275,9 @@ def main():
     if audio_input and audio_input['bytes']:
         audio_data = audio_input['bytes']
     elif uploaded_file is not None:
-        # FIX APPLIED HERE: Explicitly convert the buffer (memoryview) to bytes using .tobytes()
-        audio_data = uploaded_file.getbuffer().tobytes()
+        # FIX APPLIED HERE: Use the robust .read() method to get all file contents as bytes.
+        uploaded_file.seek(0)
+        audio_data = uploaded_file.read()
 
 
     if audio_data is not None:
