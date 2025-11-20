@@ -51,13 +51,13 @@ class DBManager:
             )
             """)
 
-            # Seed sample data if tables are empty
-            if cursor.execute('SELECT COUNT(*) FROM accounts').fetchone()[0] == 0:
-                accounts_data = [
-                    ('12345678', 54200.75),
-                    ('98765432', 1200.00),
-                ]
-                cursor.executemany("INSERT INTO accounts VALUES (?, ?)", accounts_data)
+            # Seed sample data using INSERT OR IGNORE
+            accounts_data = [
+                ('12345678', 54200.75),
+                ('98765432', 1200.00),
+            ]
+            # --- FIX APPLIED HERE: Using INSERT OR IGNORE ---
+            cursor.executemany("INSERT OR IGNORE INTO accounts VALUES (?, ?)", accounts_data)
             
             conn.commit()
             
