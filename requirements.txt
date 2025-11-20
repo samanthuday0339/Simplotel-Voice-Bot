@@ -1,11 +1,25 @@
-openai-whisper
-sentence-transformers
-gTTS
-sounddevice
-scipy
+# Core Streamlit Deployment
+streamlit
+
+# Data Handling & Visualization (as used in the analytics dashboard)
 pandas
+numpy
 matplotlib
 seaborn
-torch
-numpy
-ipython
+
+# Speech-to-Text (STT) and Natural Language Understanding (NLU)
+openai-whisper
+sentence-transformers
+torch  # Required dependency for many ML models including sentence-transformers
+
+# Text-to-Speech (TTS)
+gTTS
+
+# Audio and Scientific Computing (used in audio processing)
+scipy
+# sounddevice and pyaudio are typically for local recording and should be avoided 
+# in web environments; the Streamlit UI handles input/output instead.
+If you plan to use a dedicated Streamlit component for microphone input, you would need to add it as well:
+
+# Optional: If you use a custom Streamlit component for microphone recording
+# streamlit-mic-recorder
