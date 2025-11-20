@@ -1,9 +1,9 @@
 # Simplotel-Voice-Bot
 
-Intelligent Voice Bot for Customer Interaction
+##Intelligent Voice Bot for Customer Interaction
 This project is a voice bot capable of handling customer queries regarding banking/hotel balances and reservations. It utilizes AI for Speech-to-Text, NLU, and Text-to-Speech.
 
-Features
+##Features
 Speech Recognition: OpenAI Whisper
 
 NLU: Hugging Face Sentence Transformers (Semantic understanding of intent)
@@ -14,7 +14,7 @@ Backend: SQLite Database integration
 
 Analytics: Interaction logs and latency tracking
 
-How to Run
+##How to Run
 Install dependencies: pip install -r requirements.txt
 
 Open VOICEBOT.ipynb in Jupyter Notebook or VS Code.
