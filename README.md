@@ -19,8 +19,8 @@ Watch the voice bot perform real-time speech-to-text, intent detection, and data
 
 
 
-https://github.com/user-attachments/assets/067b990d-f4e6-4937-a5d4-274c11acd28c
 
+https://github.com/user-attachments/assets/8ac963cf-e133-44a3-b678-75268005016b
 
 
 > **Note:** The video above demonstrates the full interaction loop, including hardware acceleration checks (MPS/CUDA), dynamic SQL transactions, and the post-session analytics dashboard.
