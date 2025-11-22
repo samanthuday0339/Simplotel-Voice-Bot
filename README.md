@@ -12,13 +12,12 @@
 An end-to-end AI voice assistant capable of handling real-time customer queries for banking and hospitality scenarios. Unlike simple rule-based bots, this project leverages **Semantic NLU** to understand user intent accurately, integrates a **SQLite Backend** for dynamic data fetching, and utilizes **OpenAI Whisper** for high-fidelity transcription.
 
 ---
+
 ## 🎥 Live Demo
 
-### Click the button below to watch the voice bot in action:
+**GitHub cannot preview the video directly because it is high quality.** 👉 [**Click Here to Download & Watch the Demo Video**](./REC-20251122111409.mp4)
 
-[![Watch Video](https://img.shields.io/badge/▶︎_Watch-Live_Demo_Video-red?style=for-the-badge&logo=youtube)](./REC-20251122111409.mp4)
-
-> **Note:** This video demonstrates real-time transcription, NLU intent detection, and database logging.
+> **Instructions:** If the video does not play in your browser, click the **"Download"** or **"View Raw"** button on the next page.
 ---
 
 ## 🎯 Assignment Compliance Checklist
