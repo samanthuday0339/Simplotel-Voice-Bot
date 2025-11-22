@@ -2,7 +2,7 @@
 
 ![Python](https://img.shields.io/badge/Python-3.9%2B-blue?logo=python)
 ![AI](https://img.shields.io/badge/AI-OpenAI%20Whisper-green?logo=openai)
-![NLU](https://img.shields.io/badge/NLU-Hugging%20Face%20Zero-Shot%2BspaCy-yellow?logo=huggingface)
+![NLU](https://img.shields.io/badge/NLU-Hugging%20Face%20Zero-Shot%20%2B%20spaCy-yellow?logo=huggingface)
 ![LLM](https://img.shields.io/badge/LLM-OpenAI%20GPT-4o-mini-purple?logo=openai)
 ![Status](https://img.shields.io/badge/Status-Assignment%20Completed%20(100%25%20Compliant)-success)
 ![Platform](https://img.shields.io/badge/Platform-macOS%20%7C%20Windows%20%7C%20Linux-lightgrey)
