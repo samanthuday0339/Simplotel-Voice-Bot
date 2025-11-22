@@ -1,4 +1,3 @@
-````markdown
 # 🎙️ Intelligent Voice Bot (Simplotel Assignment)
 
 ![Python](https://img.shields.io/badge/Python-3.9%2B-blue?logo=python)
@@ -77,7 +76,6 @@ You must have **FFmpeg** installed for Whisper to process audio.
 **macOS**
 ```bash
 brew install ffmpeg
-````
 
 **Windows**
 
@@ -157,7 +155,7 @@ jupyter notebook
 
 ## 👤 Author
 
-**Samantha**
+**Samanth**
 
 [GitHub Profile](https://www.google.com/search?q=https://github.com/samanthuday0339)
 
