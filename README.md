@@ -79,7 +79,7 @@ You must have **FFmpeg** installed for Whisper to process audio.
 
 ### 2. Clone Repository
 ```bash
-git clone https://github.com/samanthuday0339/Simplotel-Voice-Bot.git
+git clone [https://github.com/samanthuday0339/Simplotel-Voice-Bot.git](https://github.com/samanthuday0339/Simplotel-Voice-Bot.git)
 cd Simplotel-Voice-Bot
 
 ### 2️⃣ Clone Repository
