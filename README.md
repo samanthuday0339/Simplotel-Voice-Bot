@@ -16,7 +16,8 @@ An end-to-end AI voice assistant capable of handling real-time customer queries 
 
 Check out the voice bot in action, handling real-time queries and database transactions:
 
-https://github.com/user-attachments/assets/placeholder-video-link.mp4
+[REC-20251122111409.mp4.zip](https://github.com/user-attachments/files/23687115/REC-20251122111409.mp4.zip)
+
 
 ---
 ## 🎯 Assignment Compliance Checklist
