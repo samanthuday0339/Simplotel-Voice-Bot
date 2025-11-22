@@ -1,3 +1,4 @@
+````markdown
 # 🎙️ Intelligent Voice Bot (Simplotel Assignment)
 
 ![Python](https://img.shields.io/badge/Python-3.9%2B-blue?logo=python)
@@ -70,16 +71,95 @@ Upon saying **"Goodbye"**, the bot shuts down and triggers a visual dashboard sh
 
 ## ⚙️ Installation & Setup
 
-### 1. System Prerequisites (Critical)
+### 1️⃣ Install FFmpeg (Required)
 You must have **FFmpeg** installed for Whisper to process audio.
 
-* **macOS:** `brew install ffmpeg`
-* **Windows:** `choco install ffmpeg` (or add to PATH)
-* **Ubuntu:** `sudo apt install ffmpeg`
+**macOS**
+```bash
+brew install ffmpeg
+````
 
-### 2. Clone Repository
+**Windows**
+
+```bash
+choco install ffmpeg
+```
+
+**Ubuntu**
+
+```bash
+sudo apt install ffmpeg
+```
+
+### 2️⃣ Clone Repository
+
 ```bash
 git clone [https://github.com/samanthuday0339/Simplotel-Voice-Bot.git](https://github.com/samanthuday0339/Simplotel-Voice-Bot.git)
 cd Simplotel-Voice-Bot
+```
 
+### 3️⃣ Install Python Dependencies
 
+```bash
+pip install numpy pandas matplotlib seaborn sounddevice scipy openai-whisper sentence-transformers gTTS torch
+```
+
+-----
+
+## ▶️ How to Run the Project (Jupyter)
+
+**Step 1 — Launch Notebook**
+
+```bash
+jupyter notebook
+```
+
+**Step 2 — Open**
+`VOICEBOT.ipynb`
+
+**Step 3 — Run All Cells in Order**
+
+| Cell | Description |
+| :--- | :--- |
+| **Cell 1** | Hardware detection + imports |
+| **Cell 2** | SQLite DB setup |
+| **Cell 3** | Load NLU model |
+| **Cell 4** | Whisper STT + TTS initialization |
+| **Cell 5** | Voice bot loop |
+| **Cell 6** | Analytics dashboard |
+
+-----
+
+## 🎤 Supported Voice Commands
+
+| Intent | Example Phrases | DB Action |
+| :--- | :--- | :--- |
+| **Check Balance** | “Show my balance”, “What are my funds?” | SQL `SELECT` |
+| **Book Hotel** | “Book a room”, “Reserve a suite” | SQL `INSERT` |
+| **Support** | “I need help”, “Talk to support” | Static reply |
+| **Exit** | “Goodbye”, “Stop” | Ends session + dashboard |
+
+-----
+
+## 📁 Project Structure
+
+```text
+📦 Simplotel-Voice-Bot
+│
+├── VOICEBOT.ipynb             # Main Jupyter Notebook
+├── voice_bot_data.db          # SQLite DB (auto-generated)
+├── sample_audio/              # Test audio files
+├── requirements.txt           # Dependencies
+└── README.md                  # Documentation
+```
+
+-----
+
+## 👤 Author
+
+**Samantha**
+
+[GitHub Profile](https://www.google.com/search?q=https://github.com/samanthuday0339)
+
+```
+```
