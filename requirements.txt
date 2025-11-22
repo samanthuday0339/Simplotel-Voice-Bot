@@ -3,10 +3,8 @@ pandas
 numpy
 matplotlib
 seaborn
-openai-whisper
-transformers
 openai
 gtts
+transformers
 spacy
-# Direct link to download the spacy model (Required for Cloud)
 https://github.com/explosion/spacy-models/releases/download/en_core_web_sm-3.7.1/en_core_web_sm-3.7.1.tar.gz
