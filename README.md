@@ -115,7 +115,7 @@ jupyter notebook
 
 -----
 
-## 🎤 Supported Voice Commands
+##  4 -🎤 Supported Voice Commands
 
 | Intent | Example Phrases | DB Action |
 | :--- | :--- | :--- |
@@ -126,7 +126,7 @@ jupyter notebook
 
 -----
 
-## 📁 Project Structure
+## 5 📁 Project Structure
 
 ```text
 📦 Simplotel-Voice-Bot
@@ -140,11 +140,11 @@ jupyter notebook
 
 -----
 
-## 👤 Author
+## 6 👤 Author
 
 **Samanth**
 
-[GitHub Profile](https://www.google.com/search?q=https://github.com/samanthuday0339)
+[GitHub Profile](https://github.com/samanthuday0339)
 
 ```
 ```
