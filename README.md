@@ -141,7 +141,8 @@ jupyter notebook
 -----
 ## 📊 Analytics Dashboard
 
-[Analytics Dashboard](https://github.com/samanthuday0339/Simplotel-Voice-Bot/blob/main/Screenshot%202025-11-22%20at%2010.50.36 AM.png)
+![Analytics Dashboard](/mnt/data/Screenshot 2025-11-22 at 10.50.36 AM.png)
+
 
 -----
 ## 🧩 System Architecture
