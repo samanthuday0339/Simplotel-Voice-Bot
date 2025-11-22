@@ -147,7 +147,8 @@ jupyter notebook
 
 -----
 ## 🧩 System Architecture
-<img width="1024" height="1536" alt="ChatGPT Image Nov 22, 2025 at 10_00_20 AM" src="https://github.com/user-attachments/assets/b7223404-51ab-4805-85f4-293945b30c2c" />
+<img width="296" height="598" alt="Screenshot 2025-11-22 at 11 01 04 AM" src="https://github.com/user-attachments/assets/1c1147b7-45b7-4f61-8194-5c31fa0d9020" />
+
 
 
 ------
