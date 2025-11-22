@@ -83,7 +83,7 @@ git clone https://github.com/samanthuday0339/Simplotel-Voice-Bot.git
 cd Simplotel-Voice-Bot
 ```
 
-### 3️⃣ Install Python Dependencies
+###  Install Python Dependencies
 
 ```bash
 pip install numpy pandas matplotlib seaborn sounddevice scipy openai-whisper sentence-transformers gTTS torch
@@ -91,7 +91,7 @@ pip install numpy pandas matplotlib seaborn sounddevice scipy openai-whisper sen
 
 -----
 
-## ▶️ How to Run the Project (Jupyter)
+## 3. How to Run the Project (Jupyter)
 
 **Step 1 — Launch Notebook**
 
