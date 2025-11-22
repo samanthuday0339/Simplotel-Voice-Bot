@@ -140,14 +140,15 @@ jupyter notebook
 
 -----
 ## 📊 Analytics Dashboard
+<img width="855" height="754" alt="Screenshot 2025-11-22 at 10 50 36 AM" src="https://github.com/user-attachments/assets/fbfbb33f-06d5-456e-b011-1ae95b13d195" />
 
-![Analytics Dashboard](/mnt/data/Screenshot 2025-11-22 at 10.50.36 AM.png)
+
 
 
 -----
 ## 🧩 System Architecture
+<img width="1024" height="1536" alt="ChatGPT Image Nov 22, 2025 at 10_00_20 AM" src="https://github.com/user-attachments/assets/b7223404-51ab-4805-85f4-293945b30c2c" />
 
-[Architecture Diagram](https://github.com/samanthuday0339/Simplotel-Voice-Bot/blob/main/ChatGPT%20Image%20Nov%2022%2C%202025%20at%2010_45_24%20AM.png)
 
 ------
 
