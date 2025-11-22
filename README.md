@@ -82,3 +82,110 @@ Run the following command in your terminal to install all required libraries:
 
 ```bash
 pip install numpy pandas matplotlib seaborn sounddevice scipy openai-whisper sentence-transformers gTTS torch
+
+
+## 🛠 Tech Stack
+
+Component,Technology
+Speech-to-Text,OpenAI Whisper 
+NLU,Sentence Transformers (all-MiniLM-L6-v2) 
+Text-to-Speech,gTTS 
+Database,SQLite 
+Runtime,Python + Jupyter Notebook 
+Audio I/O,"sounddevice, scipy "
+Analytics,"Pandas, Matplotlib, Seaborn "
+
+
+📥 Clone This Repository
+git clone [https://github.com/samanthuday0339/Simplotel-Voice-Bot.git](https://github.com/samanthuday0339/Simplotel-Voice-Bot.git)
+cd Simplotel-Voice-Bot
+
+
+⚙ Installation Guide
+1️⃣ Install FFmpeg (Required for Whisper)
+
+macOS:
+
+Bash
+brew install ffmpeg
+Windows:
+
+Bash
+choco install ffmpeg
+Ubuntu:
+
+Bash
+sudo apt install ffmpeg
+2️⃣ Install Python Dependencies
+
+Bash
+pip install numpy pandas seaborn matplotlib sounddevice scipy openai-whisper sentence-transformers torch gTTS ffmpeg-python
+
+
+▶️ How to Run the Project (Jupyter)
+Launch Jupyter Notebook:
+
+Bash
+jupyter notebook
+Open: VOICEBOT.ipynb
+
+Run All Cells Sequentially:
+
+Cell	Description
+Cell 1	Imports & hardware detection
+Cell 2	SQLite DB setup & seed data
+Cell 3	Load Semantic NLU model
+Cell 4	Whisper STT + gTTS init
+Cell 5	Begins voice bot loop
+Cell 6	Analytics dashboard
+🎤 Supported Voice Commands
+Intent	Example Phrases	DB Action
+Check Balance	"Show my balance", "What are my funds?"	
+SQL SELECT 
+
+Book Hotel	"Book a room", "Reserve a suite"	
+SQL INSERT 
+
+Support	"I need help", "Talk to support"	
+Static reply 
+
+Exit	"Goodbye", "Stop"	
+Ends session + shows analytics 
+
+📁 Project Structure
+Plaintext
+📦 Simplotel-Voice-Bot
+│
+├── VOICEBOT.ipynb            # Main Jupyter Notebook
+├── voice_bot_data.db         # SQLite database (auto-generated)
+├── sample_audio/             # Optional test audio files
+├── requirements.txt          # Dependencies list
+└── README.md                 # Documentation
+📊 GitHub Repository Stats
+👤 Author
+Samantha
+
+🔗 GitHub: samanthuday0339
+
+📧 Email: (add your email)
+
+🔗 LinkedIn: (add your LinkedIn link)
+
+🏁 Final Summary
+This project delivers a fully working conversational AI voice assistant with:
+
+✔ Whisper ASR
+
+✔ Semantic NLU
+
+✔ SQLite backend
+
+✔ Dynamic response engine
+
+✔ TTS audio replies
+
+✔ Analytics visualizations
+
+✔ Clean, modular code in one notebook
+
+Perfectly aligned with the Simplotel Voice Bot Assignment.
