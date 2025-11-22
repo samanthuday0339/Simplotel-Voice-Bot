@@ -139,6 +139,16 @@ jupyter notebook
 ```
 
 -----
+## 📊 Analytics Dashboard
+
+[Analytics Dashboard](https://github.com/samanthuday0339/Simplotel-Voice-Bot/blob/main/Screenshot%202025-11-22%20at%2010.50.36 AM.png)
+
+-----
+## 🧩 System Architecture
+
+[Architecture Diagram](https://github.com/samanthuday0339/Simplotel-Voice-Bot/blob/main/ChatGPT%20Image%20Nov%2022%2C%202025%20at%2010_45_24%20AM.png)
+
+------
 
 ## 6 👤 Author
 
