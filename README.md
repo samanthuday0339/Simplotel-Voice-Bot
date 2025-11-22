@@ -15,10 +15,22 @@ An end-to-end AI voice assistant capable of handling real-time customer queries 
 
 ## 🎥 Live Demo
 
+Watch the voice bot perform real-time speech-to-text, intent detection, and database logging:
 
-https://github.com/user-attachments/assets/7d97415a-bb1d-4d0f-b42d-175c3f6234db
 
 
+https://github.com/user-attachments/assets/067b990d-f4e6-4937-a5d4-274c11acd28c
+
+
+
+> **Note:** The video above demonstrates the full interaction loop, including hardware acceleration checks (MPS/CUDA), dynamic SQL transactions, and the post-session analytics dashboard.
+
+## 📊 Analytics Dashboard
+<img width="855" height="754" alt="Screenshot 2025-11-22 at 10 50 36 AM" src="https://github.com/user-attachments/assets/fbfbb33f-06d5-456e-b011-1ae95b13d195" />
+
+
+## 🧩 System Architecture
+<img width="296" height="598" alt="Screenshot 2025-11-22 at 11 01 04 AM" src="https://github.com/user-attachments/assets/1c1147b7-45b7-4f61-8194-5c31fa0d9020" />
 
 ---
 
@@ -146,20 +158,6 @@ jupyter notebook
 ├── requirements.txt           # Dependencies
 └── README.md                  # Documentation
 ```
-
------
-## 📊 Analytics Dashboard
-<img width="855" height="754" alt="Screenshot 2025-11-22 at 10 50 36 AM" src="https://github.com/user-attachments/assets/fbfbb33f-06d5-456e-b011-1ae95b13d195" />
-
-
-
-
------
-## 🧩 System Architecture
-<img width="296" height="598" alt="Screenshot 2025-11-22 at 11 01 04 AM" src="https://github.com/user-attachments/assets/1c1147b7-45b7-4f61-8194-5c31fa0d9020" />
-
-
-
 ------
 
 ## 6 👤 Author
