@@ -25,7 +25,8 @@ Watch the voice bot perform real-time speech-to-text, intent detection with enti
 > **Note:** The video demonstrates the full interaction loop, including hardware checks, dynamic SQL transactions, entity extraction, and the upgraded post-session analytics dashboard with error-rate pie chart.
 
 ## 📊 Analytics Dashboard (Upgraded)
-<img width="855" height="754" alt="Screenshot 2025-11-22 at 10 50 36 AM" src="https://github.com/user-attachments/assets/fbfbb33f-06d5-456e-b011-1ae95b13d195" />
+<img width="1149" height="549" alt="Screenshot 2025-11-22 at 4 43 43 PM" src="https://github.com/user-attachments/assets/97104ba0-5cca-4541-b2d3-efa8aead5f70" />
+
 
 **New Features:** Confidence histogram, error-rate pie chart (tracks low-confidence/unknown intents), and entity logging.
 
