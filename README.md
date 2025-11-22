@@ -83,34 +83,3 @@ git clone [https://github.com/samanthuday0339/Simplotel-Voice-Bot.git](https://g
 cd Simplotel-Voice-Bot
 
 
-### 3. Install Python Dependencies
-Run the following command in your terminal to install all required libraries:
-
-```bash
-pip install numpy pandas matplotlib seaborn sounddevice scipy openai-whisper sentence-transformers gTTS torch
-
-4.▶️ How to Run the Project (Jupyter)
-Launch Jupyter Notebook:
-
-Bash
-jupyter notebook
-Open: VOICEBOT.ipynb
-
-Run All Cells Sequentially:
-
-Cell	Description
-Cell 1	Imports & hardware detection
-Cell 2	SQLite DB setup & seed data
-Cell 3	Load Semantic NLU model
-Cell 4	Whisper STT + gTTS init
-Cell 5	Begins voice bot loop (Speak after running this)
-Cell 6	Analytics dashboard (Runs after exit)
-
-
-5.🎤 Supported Voice Commands
-Intent	Example Phrases	DB Action
-Check Balance	"Show my balance", "What are my funds?"	SQL SELECT
-Book Hotel	"Book a room", "Reserve a suite"	SQL INSERT
-Support	"I need help", "Talk to support"	Static reply
-Exit	"Goodbye", "Stop"	Ends session + Analytics
-
