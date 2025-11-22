@@ -54,17 +54,25 @@ Upon saying **"Goodbye"**, the bot shuts down and triggers a visual dashboard sh
 
 ---
 
-## 🛠️ Tech Stack
+## 🛠 Tech Stack
 
-| Component | Technology | Library Used |
-| :--- | :--- | :--- |
-| **Core Logic** | Python 3.10+ | `Jupyter Notebook` |
-| **ASR (Speech-to-Text)** | OpenAI Whisper | `openai-whisper` |
-| **NLU (Embeddings)** | Transformers | `sentence-transformers`, `torch` |
-| **TTS (Text-to-Speech)** | Google TTS | `gTTS` |
-| **Audio Capture** | PortAudio | `sounddevice`, `scipy` |
-| **Backend** | SQL Database | `sqlite3` |
-| **Analytics** | Data Science Stack | `pandas`, `seaborn`, `matplotlib` |
+| Component | Technology |
+| :--- | :--- |
+| **Speech-to-Text** | OpenAI Whisper |
+| **NLU** | Sentence Transformers (`all-MiniLM-L6-v2`) |
+| **Text-to-Speech** | gTTS |
+| **Database** | SQLite |
+| **Runtime** | Python + Jupyter Notebook |
+| **Audio I/O** | `sounddevice`, `scipy` |
+| **Analytics** | Pandas, Matplotlib, Seaborn |
+
+---
+
+## 📥 Clone This Repository
+
+```bash
+git clone [https://github.com/samanthuday0339/Simplotel-Voice-Bot.git](https://github.com/samanthuday0339/Simplotel-Voice-Bot.git)
+cd Simplotel-Voice-Bot
 
 ---
 
@@ -83,43 +91,6 @@ Run the following command in your terminal to install all required libraries:
 ```bash
 pip install numpy pandas matplotlib seaborn sounddevice scipy openai-whisper sentence-transformers gTTS torch
 
-
-## 🛠 Tech Stack
-
-Component,Technology
-Speech-to-Text,OpenAI Whisper 
-NLU,Sentence Transformers (all-MiniLM-L6-v2) 
-Text-to-Speech,gTTS 
-Database,SQLite 
-Runtime,Python + Jupyter Notebook 
-Audio I/O,"sounddevice, scipy "
-Analytics,"Pandas, Matplotlib, Seaborn "
-
-
-📥 Clone This Repository
-git clone [https://github.com/samanthuday0339/Simplotel-Voice-Bot.git](https://github.com/samanthuday0339/Simplotel-Voice-Bot.git)
-cd Simplotel-Voice-Bot
-
-
-⚙ Installation Guide
-1️⃣ Install FFmpeg (Required for Whisper)
-
-macOS:
-
-Bash
-brew install ffmpeg
-Windows:
-
-Bash
-choco install ffmpeg
-Ubuntu:
-
-Bash
-sudo apt install ffmpeg
-2️⃣ Install Python Dependencies
-
-Bash
-pip install numpy pandas seaborn matplotlib sounddevice scipy openai-whisper sentence-transformers torch gTTS ffmpeg-python
 
 
 ▶️ How to Run the Project (Jupyter)
@@ -167,10 +138,6 @@ Samantha
 
 🔗 GitHub: samanthuday0339
 
-📧 Email: (add your email)
-
-🔗 LinkedIn: (add your LinkedIn link)
-
 🏁 Final Summary
 This project delivers a fully working conversational AI voice assistant with:
 
@@ -188,4 +155,4 @@ This project delivers a fully working conversational AI voice assistant with:
 
 ✔ Clean, modular code in one notebook
 
-Perfectly aligned with the Simplotel Voice Bot Assignment.
+
