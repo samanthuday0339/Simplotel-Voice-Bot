@@ -6,7 +6,7 @@
 ![Status](https://img.shields.io/badge/Status-Assignment%20Completed-success)
 ![Platform](https://img.shields.io/badge/Platform-macOS%20%7C%20Windows%20%7C%20Linux-lightgrey)
 
-> **Assignment:** Software Engineer - Assignment 2 (Voice Bot Development)
+> **Assignment:** Software Engineer - Assignment 2 (Voice Bot Development)  
 > **Submission Type:** Jupyter Notebook (`.ipynb`) Integration
 
 An end-to-end AI voice assistant capable of handling real-time customer queries for banking and hospitality scenarios. Unlike simple rule-based bots, this project leverages **Semantic NLU** to understand user intent accurately, integrates a **SQLite Backend** for dynamic data fetching, and utilizes **OpenAI Whisper** for high-fidelity transcription.
@@ -68,14 +68,6 @@ Upon saying **"Goodbye"**, the bot shuts down and triggers a visual dashboard sh
 
 ---
 
-## 📥 Clone This Repository
-
-```bash
-git clone [https://github.com/samanthuday0339/Simplotel-Voice-Bot.git](https://github.com/samanthuday0339/Simplotel-Voice-Bot.git)
-cd Simplotel-Voice-Bot
-
----
-
 ## ⚙️ Installation & Setup
 
 ### 1. System Prerequisites (Critical)
@@ -85,15 +77,19 @@ You must have **FFmpeg** installed for Whisper to process audio.
 * **Windows:** `choco install ffmpeg` (or add to PATH)
 * **Ubuntu:** `sudo apt install ffmpeg`
 
-### 2. Install Python Dependencies
+### 2. Clone Repository
+```bash
+git clone [https://github.com/samanthuday0339/Simplotel-Voice-Bot.git](https://github.com/samanthuday0339/Simplotel-Voice-Bot.git)
+cd Simplotel-Voice-Bot
+
+
+### 3. Install Python Dependencies
 Run the following command in your terminal to install all required libraries:
 
 ```bash
 pip install numpy pandas matplotlib seaborn sounddevice scipy openai-whisper sentence-transformers gTTS torch
 
-
-
-▶️ How to Run the Project (Jupyter)
+4.▶️ How to Run the Project (Jupyter)
 Launch Jupyter Notebook:
 
 Bash
@@ -107,52 +103,14 @@ Cell 1	Imports & hardware detection
 Cell 2	SQLite DB setup & seed data
 Cell 3	Load Semantic NLU model
 Cell 4	Whisper STT + gTTS init
-Cell 5	Begins voice bot loop
-Cell 6	Analytics dashboard
-🎤 Supported Voice Commands
+Cell 5	Begins voice bot loop (Speak after running this)
+Cell 6	Analytics dashboard (Runs after exit)
+
+
+5.🎤 Supported Voice Commands
 Intent	Example Phrases	DB Action
-Check Balance	"Show my balance", "What are my funds?"	
-SQL SELECT 
-
-Book Hotel	"Book a room", "Reserve a suite"	
-SQL INSERT 
-
-Support	"I need help", "Talk to support"	
-Static reply 
-
-Exit	"Goodbye", "Stop"	
-Ends session + shows analytics 
-
-📁 Project Structure
-Plaintext
-📦 Simplotel-Voice-Bot
-│
-├── VOICEBOT.ipynb            # Main Jupyter Notebook
-├── voice_bot_data.db         # SQLite database (auto-generated)
-├── sample_audio/             # Optional test audio files
-├── requirements.txt          # Dependencies list
-└── README.md                 # Documentation
-📊 GitHub Repository Stats
-👤 Author
-Samantha
-
-🔗 GitHub: samanthuday0339
-
-🏁 Final Summary
-This project delivers a fully working conversational AI voice assistant with:
-
-✔ Whisper ASR
-
-✔ Semantic NLU
-
-✔ SQLite backend
-
-✔ Dynamic response engine
-
-✔ TTS audio replies
-
-✔ Analytics visualizations
-
-✔ Clean, modular code in one notebook
-
+Check Balance	"Show my balance", "What are my funds?"	SQL SELECT
+Book Hotel	"Book a room", "Reserve a suite"	SQL INSERT
+Support	"I need help", "Talk to support"	Static reply
+Exit	"Goodbye", "Stop"	Ends session + Analytics
 
