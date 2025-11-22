@@ -1,4 +1,4 @@
-# 🎙️ Intelligent Voice Bot (Simplotel Assignment) - **Updated v2.0**
+# 🎙️ Intelligent Voice Bot (Simplotel Assignment) 
 
 ![Python](https://img.shields.io/badge/Python-3.9%2B-blue?logo=python)
 ![AI](https://img.shields.io/badge/AI-OpenAI%20Whisper-green?logo=openai)
