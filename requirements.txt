@@ -4,8 +4,9 @@ numpy
 matplotlib
 seaborn
 openai-whisper
-sentence-transformers
-torch
-gTTS
+transformers
+spacy
+openai
+gtts
 scipy
-streamlit-mic-recorder
+sounddevice
