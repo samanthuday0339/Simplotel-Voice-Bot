@@ -31,7 +31,8 @@ Watch the voice bot perform real-time speech-to-text, intent detection with enti
 **New Features:** Confidence histogram, error-rate pie chart (tracks low-confidence/unknown intents), and entity logging.
 
 ## 🧩 System Architecture
-<img width="296" height="598" alt="Screenshot 2025-11-22 at 11 01 04 AM" src="https://github.com/user-attachments/assets/1c1147b7-45b7-4f61-8194-5c31fa0d9020" />
+<img width="1024" height="1536" alt="ChatGPT Image Nov 22, 2025, 04_48_48 PM" src="https://github.com/user-attachments/assets/0542b194-6765-483e-8c84-e65147b3785f" />
+
 
 ---
 
