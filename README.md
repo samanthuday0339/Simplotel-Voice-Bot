@@ -20,7 +20,11 @@ An end-to-end AI voice assistant capable of handling real-time customer queries 
 
 Watch the voice bot perform real-time speech-to-text, intent detection with entities (e.g., "Book deluxe room tomorrow" → extracts room_type & DATE), dynamic GPT responses, and database logging:
 
-[Demo Video Link](https://github.com/user-attachments/assets/8ac963cf-e133-44a3-b678-75268005016b)
+
+
+https://github.com/user-attachments/assets/0617042d-8adc-4fa1-ab9a-13984beae9c5
+
+
 
 > **Note:** The video demonstrates the full interaction loop, including hardware checks, dynamic SQL transactions, entity extraction, and the upgraded post-session analytics dashboard with error-rate pie chart.
 
