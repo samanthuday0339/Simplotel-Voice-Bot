@@ -15,9 +15,11 @@ An end-to-end AI voice assistant capable of handling real-time customer queries 
 
 ## 🎥 Live Demo
 
-**GitHub cannot preview the video directly because it is high quality.** 👉 [**Click Here to Download & Watch the Demo Video**](./REC-20251122111409.mp4)
 
-> **Instructions:** If the video does not play in your browser, click the **"Download"** or **"View Raw"** button on the next page.
+https://github.com/user-attachments/assets/7d97415a-bb1d-4d0f-b42d-175c3f6234db
+
+
+
 ---
 
 ## 🎯 Assignment Compliance Checklist
