@@ -12,6 +12,12 @@
 An end-to-end AI voice assistant capable of handling real-time customer queries for banking and hospitality scenarios. Unlike simple rule-based bots, this project leverages **Semantic NLU** to understand user intent accurately, integrates a **SQLite Backend** for dynamic data fetching, and utilizes **OpenAI Whisper** for high-fidelity transcription.
 
 ---
+## 🎥 Live Demo
+
+### [▶️ Click here to watch the demo video](./REC-20251122111409.mp4)
+
+> **Note:** Clicking the link above will open the video in GitHub's native player.
+---
 
 ## 🎯 Assignment Compliance Checklist
 
