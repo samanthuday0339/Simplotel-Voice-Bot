@@ -70,24 +70,17 @@ Upon saying **"Goodbye"**, the bot shuts down and triggers a visual dashboard sh
 
 ## ⚙️ Installation & Setup
 
-### 1️⃣ Install FFmpeg (Required)
+### 1. System Prerequisites (Critical)
 You must have **FFmpeg** installed for Whisper to process audio.
 
-**macOS**
+* **macOS:** `brew install ffmpeg`
+* **Windows:** `choco install ffmpeg` (or add to PATH)
+* **Ubuntu:** `sudo apt install ffmpeg`
+
+### 2. Clone Repository
 ```bash
-brew install ffmpeg
-
-**Windows**
-
-```bash
-choco install ffmpeg
-```
-
-**Ubuntu**
-
-```bash
-sudo apt install ffmpeg
-```
+git clone https://github.com/samanthuday0339/Simplotel-Voice-Bot.git
+cd Simplotel-Voice-Bot
 
 ### 2️⃣ Clone Repository
 
