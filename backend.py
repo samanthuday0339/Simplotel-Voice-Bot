@@ -1,19 +1,17 @@
 import sqlite3
-import spacy
-from transformers import pipeline
-from openai import OpenAI
+import json
 import os
+from openai import OpenAI
 
 # --- 1. Database Class (Lightweight SQLite) ---
 class BankingBackend:
     def __init__(self):
-        # check_same_thread=False is needed for Streamlit's multi-threaded environment
+        # check_same_thread=False is required for Streamlit
         self.conn = sqlite3.connect(":memory:", check_same_thread=False)
         self.cursor = self.conn.cursor()
         self._init_db()
 
     def _init_db(self):
-        # Initialize with dummy data for the demo
         self.cursor.execute('''
             CREATE TABLE IF NOT EXISTS users (
                 user_id TEXT PRIMARY KEY,
@@ -30,73 +28,73 @@ class BankingBackend:
         self.cursor.execute("SELECT * FROM users WHERE user_id=?", (user_id,))
         return self.cursor.fetchone()
 
-    def log_transaction(self, user_id, service_type):
-        # Simulating a write operation
-        return f"Confirmed. {service_type} has been logged for User {user_id}."
 
-
-# --- 2. NLU Class (Local Processing) ---
+# --- 2. NLU Class (GPT-4o-mini Powered) ---
 class AdvancedNLU:
-    def __init__(self):
-        print("🧠 Loading NLU Models...")
-        # Zero-shot classification (Runs on CPU, might be slow on Free Tier but works)
-        self.classifier = pipeline(
-            "zero-shot-classification",
-            model="typeform/distilbert-base-uncased-mnli"
-        )
+    def __init__(self, client=None):
+        self.client = client
+
+    def predict_intent(self, text, client=None):
+        """
+        Uses GPT-4o-mini to extract Intent and Entities in one shot.
+        This replaces the heavy local 'transformers' model.
+        """
+        # Use the client passed in method or fall back to class client
+        active_client = client or self.client
         
-        # Entity Extraction (SpaCy - Lightweight)
+        if not active_client:
+            # Fallback if no API key is available yet
+            return "unknown", 0.0, {}
+
+        system_prompt = """
+        You are an NLU engine. Analyze the user's text.
+        1. Detect Intent: 'check_balance', 'book_hotel', 'support', 'greeting', 'goodbye'.
+        2. Extract Entities: 'DATE', 'room_type', 'MONEY'.
+        3. Return strictly valid JSON: {"intent": "...", "entities": {...}}
+        """
+
         try:
-            self.nlp = spacy.load("en_core_web_sm")
-        except OSError:
-            # Fallback if model isn't linked correctly, though requirements.txt url fixes this
-            from spacy.cli import download
-            download("en_core_web_sm")
-            self.nlp = spacy.load("en_core_web_sm")
+            response = active_client.chat.completions.create(
+                model="gpt-4o-mini",
+                messages=[
+                    {"role": "system", "content": system_prompt},
+                    {"role": "user", "content": text}
+                ],
+                response_format={"type": "json_object"},
+                temperature=0.0
+            )
+            
+            # Parse JSON response
+            data = json.loads(response.choices[0].message.content)
+            intent = data.get("intent", "unknown")
+            entities = data.get("entities", {})
+            
+            return intent, 1.0, entities
 
-        self.intent_labels = ["check_balance", "book_hotel", "support", "greeting", "goodbye"]
-
-    def predict_intent(self, text):
-        # 1. Detect Intent
-        result = self.classifier(text, self.intent_labels)
-        intent = result["labels"][0]
-        confidence = result["scores"][0]
-
-        # 2. Extract Entities
-        doc = self.nlp(text)
-        entities = {}
-        for ent in doc.ents:
-            if ent.label_ in ["DATE", "TIME", "MONEY", "GPE"]:
-                entities[ent.label_] = ent.text
-        
-        # Custom keyword extraction for hotels
-        text_lower = text.lower()
-        room_types = {"suite": "Suite", "deluxe": "Deluxe", "standard": "Standard"}
-        for key, val in room_types.items():
-            if key in text_lower:
-                entities["room_type"] = val
-
-        return intent, confidence, entities
+        except Exception as e:
+            print(f"NLU Error: {e}")
+            return "unknown", 0.0, {}
 
 
-# --- 3. Main Bot Engine (API Audio + Logic) ---
+# --- 3. Main Bot Engine ---
 class VoiceBot:
     def __init__(self, api_key=None):
         self.backend = BankingBackend()
-        # We need the API key for both Transcription (Audio) and Chat (Text)
         self.api_key = api_key
-        if self.api_key:
-            self.client = OpenAI(api_key=self.api_key)
-        else:
-            self.client = None
+        self.client = OpenAI(api_key=api_key) if api_key else None
+        # Initialize NLU with the same client
+        self.nlu = AdvancedNLU(self.client)
+
+    def update_api_key(self, api_key):
+        """Updates the API key dynamically from the UI"""
+        self.api_key = api_key
+        self.client = OpenAI(api_key=api_key)
+        self.nlu.client = self.client
 
     def transcribe_audio(self, file_path):
-        """
-        Uses OpenAI API (Whisper-1) to transcribe audio.
-        This is much lighter than running local Whisper on Streamlit Cloud.
-        """
+        """Uses OpenAI Whisper API (Fast & Light)"""
         if not self.client:
-            return "Error: OpenAI API Key missing."
+            return "⚠️ Error: OpenAI API Key is missing."
 
         try:
             with open(file_path, "rb") as audio_file:
@@ -109,22 +107,23 @@ class VoiceBot:
             return f"Transcription Failed: {str(e)}"
 
     def generate_response(self, intent, entities, user_text):
-        """
-        Generates a response using GPT-4o-mini (if available) or Rule-Based Fallback.
-        """
-        user_id = "101"
-        user_details = self.backend.get_user_details(user_id)
+        """Generates response using GPT-4o-mini or Logic Fallback"""
+        user_details = self.backend.get_user_details("101")
         name = user_details[1] if user_details else "User"
         balance = user_details[2] if user_details else 0.0
 
-        # OPTION A: GPT-4o-mini Response (Natural)
+        # 1. Rule-Based Handling (Fastest)
+        if intent == "check_balance":
+            return f"Hi {name}, your current balance is ${balance:,.2f}."
+        
+        # 2. GPT-4o-mini Response (Natural)
         if self.client:
             try:
                 system_prompt = f"""
-                You are Aria, a banking assistant. 
-                User: {name}, Balance: ${balance}. 
+                You are Aria, a helpful banking assistant.
+                User Info: Name={name}, Balance=${balance}.
                 Current Intent: {intent}. Entities: {entities}.
-                Reply briefly (1 sentence).
+                Reply in 1 short, friendly sentence.
                 """
                 response = self.client.chat.completions.create(
                     model="gpt-4o-mini",
@@ -135,18 +134,12 @@ class VoiceBot:
                 )
                 return response.choices[0].message.content
             except Exception:
-                pass # Fail silently to fallback
+                pass 
 
-        # OPTION B: Rule-Based Fallback (Offline Mode)
-        if intent == "check_balance":
-            return f"Your current balance is ${balance:,.2f}."
-        elif intent == "book_hotel":
-            room = entities.get("room_type", "room")
-            date = entities.get("DATE", "tonight")
-            return f"I have booked a {room} for {date}."
-        elif intent == "greeting":
-            return f"Hello {name}! How can I help you with your banking today?"
+        # 3. Fallback if GPT fails
+        if intent == "book_hotel":
+            return f"I can help with that. I've noted your request for a {entities.get('room_type', 'room')}."
         elif intent == "goodbye":
-            return "Goodbye! Have a great day."
-        
-        return "I'm not sure I understood. Could you say that again?"
+            return "Goodbye! Have a wonderful day."
+            
+        return "I didn't quite catch that. Could you say it again?"
