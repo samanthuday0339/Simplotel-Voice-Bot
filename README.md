@@ -163,9 +163,7 @@ Optional: Set OPENAI_API_KEY env var for GPT responses
 ```text
 📦 Simplotel-Voice-Bot
 │
-├── VOICEBOT.ipynb             # Main Jupyter Notebook
-├── voice_bot_data.db          # SQLite DB (auto-generated)
-├── sample_audio/              # Test audio files
+├──SIMPLOTEL_VOICE_BOT.ipynb   # Main Jupyter Notebook     
 ├── requirements.txt           # Dependencies
 └── README.md                  # Documentation
 ```
