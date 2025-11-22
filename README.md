@@ -14,9 +14,11 @@ An end-to-end AI voice assistant capable of handling real-time customer queries 
 ---
 ## 🎥 Live Demo
 
-### [▶️ Click here to watch the demo video](./REC-20251122111409.mp4)
+### Click the button below to watch the voice bot in action:
 
-> **Note:** Clicking the link above will open the video in GitHub's native player.
+[![Watch Video](https://img.shields.io/badge/▶︎_Watch-Live_Demo_Video-red?style=for-the-badge&logo=youtube)](./REC-20251122111409.mp4)
+
+> **Note:** This video demonstrates real-time transcription, NLU intent detection, and database logging.
 ---
 
 ## 🎯 Assignment Compliance Checklist
